@@ -1,18 +1,20 @@
 package com.sena.michel.dtos;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.SuperBuilder;
 
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder 
-public class ClienteDto {
+@SuperBuilder 
+public class ClienteDto extends UsuarioDto {
 
-    private String tipoClie;
-    private Integer puntos;
+    private String tipCli;
+    private Integer pts;
+    
+    
 
 }

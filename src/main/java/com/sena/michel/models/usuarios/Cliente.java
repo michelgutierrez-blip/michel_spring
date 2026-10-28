@@ -17,7 +17,7 @@ import lombok.Setter;
 @NoArgsConstructor 
 public class Cliente extends Usuario {
     @Column  (name = "tipo_cliente")
-    private String tipoCliente;
+    private String tipo_Cliente;
 
     @Column (name = "puntos")
     private Integer puntos;

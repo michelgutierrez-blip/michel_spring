@@ -15,28 +15,29 @@ import lombok.Setter;
 import lombok.SuperBuilder;
 
 @Entity
-@Table (name="usuarios")
-@Inheritance (strategy = InheritanceType.JOINED)
-@Getter @Setter
-@AllArgsConstructor 
-@NoArgsConstructor 
-@SuperBuilder 
+@Table(name = "usuarios")
+@Inheritance(strategy = InheritanceType.JOINED)
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+@SuperBuilder
 public class Usuario {
 
     @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="nombres", nullable=false, length = 60)
+    @Column(name = "nombres", nullable = false, length = 60)
     private String nom;
 
-    @Column(name="apellidos", nullable=false, length = 60)
+    @Column(name = "apellidos", nullable = false, length = 60)
     private String ape;
 
-    @Column(name="direccion",  length = 120)
+    @Column(name = "direccion", length = 120)
     private String dir;
 
-    @Column(name="telefono")
-    private Long tel;
+    @Column(name = "telefono", length = 20)
+    private String tel;
 
 }

@@ -1,7 +1,7 @@
 package com.sena.michel.dtos;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
+import lombok.SuperBuilder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -9,10 +9,10 @@ import lombok.Setter;
 @Getter @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Builder
-public class TrabajadorDto {
+@SuperBuilder
+public class TrabajadorDto extends UsuarioDto {
 
     private String cargo;
-    private Double salario;
+    private Double sueldo;
 
 }
