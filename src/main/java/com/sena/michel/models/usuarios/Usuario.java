@@ -12,7 +12,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.SuperBuilder;
+import lombok.experimental.SuperBuilder;
+
 
 @Entity
 @Table(name = "usuarios")
@@ -21,7 +22,7 @@ import lombok.SuperBuilder;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@SuperBuilder
+@SuperBuilder 
 public class Usuario {
 
     @Id

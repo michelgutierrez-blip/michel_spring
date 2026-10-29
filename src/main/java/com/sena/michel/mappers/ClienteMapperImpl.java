@@ -15,7 +15,7 @@ public class ClienteMapperImpl implements ClienteMapper {
             return null;
         }
 
-        //Convertir de cleinte a clienteDto
+        //Convertir de cliente a clienteDto
         return ClienteDto.builder()
         //atributos de ususaio
         .id(cliente.getId())
@@ -37,8 +37,16 @@ public class ClienteMapperImpl implements ClienteMapper {
             return null;
         }
 
-            return Cliente.builder();
-        }
+            return Cliente.builder()
+            //Atributos de usuariodto
+            .id(clienteDto.getId())
+            .nom(clienteDto.getNomb())
+            .ape(clienteDto.getApell())
+            .dir(clienteDto.getDirec())
+            //Atributos de cliente
+            .tipo_Cliente(clienteDto.getTipCli())
+            .puntos(clienteDto.getPts())
+            .build();
 
     }
 
