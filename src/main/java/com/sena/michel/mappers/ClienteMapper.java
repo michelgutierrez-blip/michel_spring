@@ -1,6 +1,7 @@
 package com.sena.michel.mappers;
 
 import com.sena.michel.dtos.ClienteDto;
+import com.sena.michel.dtos.ClienteDtoResponse;
 import com.sena.michel.models.usuarios.Cliente;
 
 
@@ -12,5 +13,5 @@ public interface ClienteMapper  {
 
 
     // De ClienteDto a cliente
-    ClienteDto toDto(Cliente cliente);
+    ClienteDtoResponse toDto(Cliente cliente);
 }

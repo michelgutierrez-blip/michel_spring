@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sena.michel.dtos.TrabajadorDto;
+import com.sena.michel.dtos.TrabajadorDtoResponse;
 import com.sena.michel.services.TrabajadorServices;
 
 import lombok.RequiredArgsConstructor;
@@ -27,8 +28,8 @@ public class TrabajadorController {
 
     // registrar trabajador
     @PostMapping("registrar")
-    public ResponseEntity<TrabajadorDto> guardar(@RequestBody TrabajadorDto trabajadorDto) {
-        TrabajadorDto trabajadorGuardado = trabajadorServices.guardar(trabajadorDto);
+    public ResponseEntity<TrabajadorDtoResponse> guardar(@RequestBody TrabajadorDto trabajadorDto) {
+        TrabajadorDtoResponse trabajadorGuardado = trabajadorServices.guardar(trabajadorDto);
         return ResponseEntity
                 .status(HttpStatus.CREATED)
                 .body(trabajadorGuardado);
@@ -36,15 +37,15 @@ public class TrabajadorController {
 
     // Listar todos los trabajadores
     @PostMapping("/traba")
-    public ResponseEntity<List<TrabajadorDto>> listarTodos() {
+    public ResponseEntity<List<TrabajadorDtoResponse>> listarTodos() {
         return ResponseEntity.ok(trabajadorServices.listarTodos());
     }
 
     // Actualizar trabajador
     @PostMapping("/actualizar")
-    public ResponseEntity<TrabajadorDto> UpdatePost(
+    public ResponseEntity<TrabajadorDtoResponse> UpdatePost(
         @RequestBody TrabajadorDto trabajadorDto) {
-        TrabajadorDto trabajadorActualizado = trabajadorServices.actualizar(trabajadorDto.getId(), trabajadorDto);
+        TrabajadorDtoResponse trabajadorActualizado = trabajadorServices.actualizar(trabajadorDto.getId(), trabajadorDto);
         return ResponseEntity.ok(trabajadorActualizado);
     }
 

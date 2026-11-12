@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sena.michel.dtos.ClienteDto;
+import com.sena.michel.dtos.ClienteDtoResponse;
 import com.sena.michel.services.ClienteServices;
 
 import lombok.RequiredArgsConstructor;
@@ -27,8 +28,8 @@ public class ClienteController {
 
     // registrar un nuevo cliente
     @PostMapping("registrar")
-    public ResponseEntity<ClienteDto> guardar(@RequestBody ClienteDto clienteDto) {
-        ClienteDto clienteGuardado = clienteServices.guardar(clienteDto);
+    public ResponseEntity<ClienteDtoResponse> guardar(@RequestBody ClienteDto clienteDto) {
+        ClienteDtoResponse clienteGuardado = clienteServices.guardar(clienteDto);
         return ResponseEntity
             .status(HttpStatus.CREATED)
             .body(clienteGuardado);
@@ -36,16 +37,16 @@ public class ClienteController {
     
     // Listar todos los clientes
     @PostMapping("/listar")
-    public ResponseEntity<List<ClienteDto>> listarTodos() {
+    public ResponseEntity<List<ClienteDtoResponse>> listarTodos() {
         return ResponseEntity.ok(clienteServices.listarTodos());
     }
 
     // Actualizar cliente
     @PostMapping("/actualizar/{id}")
-    public ResponseEntity<ClienteDto> Update(
+    public ResponseEntity<ClienteDtoResponse> Update(
         @PathVariable Long id,
         @RequestBody ClienteDto clienteDto) {
-        ClienteDto clienteActualizado = clienteServices.actualizar(id, clienteDto);
+        ClienteDtoResponse clienteActualizado = clienteServices.actualizar(id, clienteDto);
         return ResponseEntity.ok(clienteActualizado);
     }
 

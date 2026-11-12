@@ -18,15 +18,13 @@ public class UsuarioDto {
     private Long id;
 
     @NotBlank (message = "El nombre es obligatorio")
-    @Size (min = 2 , max = 60,
-    message = "El nombre debe tener entre 2 y 60 caracteres"
-    )
+    @Size (min = 2 , max = 60, message = "El nombre debe tener entre 2 y 60 caracteres")
     private String nomb;
 
     @NotBlank (message = "El apellido es obligatorio")
     @Size (min = 2 , max = 60,
     message = "El apellido debe tener entre 2 y 60 caracteres"
-    )
+)
     private String apell;
 
     @NotBlank (message = "La dirección es obligatoria")

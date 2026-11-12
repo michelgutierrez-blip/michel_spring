@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://apache.org" xmlns:xsi="http://w3.org"
+        xsi:schemaLocation="http://apache.org https://apache.org">
     <modelVersion>4.0.0</modelVersion>
     
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.4.2</version> <!-- 1. Ajustado a una versión estable y real de Spring Boot -->
+        <version>3.4.13</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     
@@ -14,12 +14,10 @@
     <artifactId>michel</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>michel</name>
-    <description>Proyecto Spring Boot con JPA, Web, MapStruct y Lombok</description>
+    <description>Proyecto Spring Boot con JPA, Web, MapStruct y Lombok en Java 25</description>
 
     <properties>
-        <java.version>21</java.version> <!-- 2. Ajustado a la versión LTS más reciente soportada por Spring Boot estable -->
-        <org.mapstruct.version>1.6.3</org.mapstruct.version>
-        <lombok-mapstruct-binding.version>0.2.0</lombok-mapstruct-binding.version>
+        <java.version>25</java.version>
     </properties>
 
     <dependencies>
@@ -30,7 +28,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId> <!-- 3. Corregido: El starter correcto es spring-boot-starter-web -->
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -49,6 +47,8 @@
             <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
         </dependency>
+        
+        <!-- Lombok (Sin versión manual, gestionado por Spring Boot) -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -59,10 +59,10 @@
         <dependency>
             <groupId>org.mapstruct</groupId>
             <artifactId>mapstruct</artifactId>
-            <version>${org.mapstruct.version}</version>
+            <version>1.6.3</version>
         </dependency>
 
-        <!-- Test (4. Reemplazados los starters de test incorrectos por el oficial unificado) -->
+        <!-- Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -86,32 +86,31 @@
                 </configuration>
             </plugin>
 
-            <!-- 5. Plugin del compilador unificado y ordenado correctamente para Lombok + MapStruct -->
+            <!-- Plugin del compilador limpio y autoadministrado -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.13.0</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                     <annotationProcessorPaths>
-                        <!-- 1º El procesador de Lombok siempre va primero -->
+                        <!-- 1º Lombok (Usa la variable interna administrada del Parent) -->
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok</artifactId>
-                            <version>${lombok.version}</version>
+                            <version>1.18.40</version>
                         </path>
-                        <!-- 2º El binding intermedio entre ambos -->
+                        <!-- 2º Binding intermedio -->
                         <path>
                             <groupId>org.projectlombok</groupId>
                             <artifactId>lombok-mapstruct-binding</artifactId>
-                            <version>${lombok-mapstruct-binding.version}</version>
+                            <version>0.2.0</version>
                         </path>
-                        <!-- 3º El procesador de MapStruct -->
+                        <!-- 3º MapStruct Processor -->
                         <path>
                             <groupId>org.mapstruct</groupId>
                             <artifactId>mapstruct-processor</artifactId>
-                            <version>${org.mapstruct.version}</version>
+                            <version>1.6.3</version>
                         </path>
                     </annotationProcessorPaths>
                 </configuration>

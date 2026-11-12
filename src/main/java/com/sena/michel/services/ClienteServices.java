@@ -3,19 +3,20 @@ package com.sena.michel.services;
 import java.util.List;
 
 import com.sena.michel.dtos.ClienteDto;
+import com.sena.michel.dtos.ClienteDtoResponse;
 
 public interface ClienteServices {
     // registrar un nuevo cliente
-    ClienteDto guardar(ClienteDto clienteDto);
+    ClienteDtoResponse guardar(ClienteDto clienteDto);
 
     // listar todos los clientes
-    List<ClienteDto> listarTodos();
+    List<ClienteDtoResponse> listarTodos();
 
     // consultar cliente por id
-    ClienteDto consultarPorId(Long id);
+    ClienteDtoResponse consultarPorId(Long id);
 
     // actualizar cliente
-    ClienteDto actualizar(Long id, ClienteDto clienteDto);
+    ClienteDtoResponse actualizar(Long id, ClienteDto clienteDto);
 
     // eliminar cliente
     void eliminar(Long id);
